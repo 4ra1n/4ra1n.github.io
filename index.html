@@ -114,54 +114,45 @@
     <div class="container">
         <h1>4ra1n Blog</h1>
         <p>欢迎来到我的博客！我是4ra1n，这里分享我的学习笔记、技术心得和一些生活记录。</p>
-
-		<form>
-			<div class="form-group">
-				<textarea class="form-control" id="text" rows="3"></textarea>
-			</div>
-
-			<button type="button" class="btn btn-primary" onclick="encodeText()">Base64编码</button>
-            &nbsp;
-            <button type="button" class="btn btn-primary" onclick="decodeText()">Base64解码</button>
-            &nbsp;
-            <button type="button" class="btn btn-primary" onclick="urlEncodeText()">URL编码</button>
-            &nbsp;
-            <button type="button" class="btn btn-primary" onclick="urlDecodeText()">URL解码</button>
-
-            <br>
-            <br>
-
-            <button type="button" class="btn btn-primary" onclick="hexEncodeText()">Hex编码</button>
-            &nbsp;
-            <button type="button" class="btn btn-primary" onclick="hexDecodeText()">Hex解码</button>
-            &nbsp;
-            <button type="button" class="btn btn-primary" onclick="uniEncodeText()">Unicode编码</button>
-            &nbsp;
-            <button type="button" class="btn btn-primary" onclick="uniDecodeText()">Unicode解码</button>
-
-            <br>
-            <br>
-
-            <button type="button" class="btn btn-primary" onclick="calculateMD5()">MD5</button>
-            &nbsp;
-            <button type="button" class="btn btn-primary" onclick="javaBash()">Java Bash</button>
-            &nbsp;
-            <button type="button" class="btn btn-primary" onclick="javaPs()">Java PowerShell</button>
-            &nbsp;
-            <button type="button" class="btn btn-primary" onclick="stringCharCode()">String</button>
-		</form>
-        <br>
-		<div class="form-group">
-			<textarea class="form-control" id="result" rows="3" readonly></textarea>
-		</div>
-        <div class="row">
-            <div class="col-md-4 mx-auto text-center d-flex justify-content-between">
-                <div class="about-link">
-                    <a href="https://github.com/4ra1n" target="_blank" class="btn btn-outline-primary">关于我</a>
-                </div>
-                <div class="friends-link">
-                    <a href="friends.html" target="_blank" class="btn btn-outline-primary">友情链接</a>
-                </div>
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" id="text" rows="3"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="encodeText()">Base64编码</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="decodeText()">Base64解码</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="urlEncodeText()">URL编码</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="urlDecodeText()">URL解码</button>
+                    <br>
+                    <br>
+                    <button type="button" class="btn btn-primary" onclick="hexEncodeText()">Hex编码</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="hexDecodeText()">Hex解码</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="uniEncodeText()">Unicode编码</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="uniDecodeText()">Unicode解码</button>
+                    <br>
+                    <br>
+                    <button type="button" class="btn btn-primary" onclick="calculateMD5()">MD5</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="javaBash()">Java Bash</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="javaPs()">Java PowerShell</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="stringCharCode()">String</button>
+                </form>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+		        <div class="form-group">
+			        <textarea class="form-control" id="result" rows="3" readonly></textarea>
+		        </div>
             </div>
         </div>
         <div class="row mt-5">
@@ -170,6 +161,7 @@
                 <div class="card">
                     <div class="card-body">
                         <ul class="list-unstyled">
+                            <!-- 这里增加新文章 -->
                             <li>
                                 <a href="2023/001.html">001 日本五一自由行</a>
                             </li><hr>
@@ -397,6 +389,14 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-4 mx-auto text-center d-flex justify-content-between">
+            <div class="about-link">
+                <a href="https://github.com/4ra1n" target="_blank" class="btn btn-outline-primary">关于我</a>
+            </div>
+            <div class="friends-link">
+                <a href="friends.html" target="_blank" class="btn btn-outline-primary">友情链接</a>
             </div>
         </div>
         <div class="row">
