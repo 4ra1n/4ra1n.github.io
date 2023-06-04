@@ -114,6 +114,46 @@
     <div class="container">
         <h1>4ra1n Blog</h1>
         <p>欢迎来到我的博客！我是4ra1n，这里分享我的学习笔记、技术心得和一些生活记录。</p>
+
+		<form>
+			<div class="form-group">
+				<textarea class="form-control" id="text" rows="3"></textarea>
+			</div>
+
+			<button type="button" class="btn btn-primary" onclick="encodeText()">Base64 Encode</button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" onclick="decodeText()">Base64 Decode</button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" onclick="urlEncodeText()">URL Encode</button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" onclick="urlDecodeText()">URL Decode</button>
+
+            <br>
+            <br>
+
+            <button type="button" class="btn btn-primary" onclick="hexEncodeText()">Hex Encode</button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" onclick="hexDecodeText()">Hex Decode</button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" onclick="uniEncodeText()">Unicode Encode</button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" onclick="uniDecodeText()">Unicode Decode</button>
+
+            <br>
+            <br>
+
+            <button type="button" class="btn btn-primary" onclick="calculateMD5()">MD5</button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" onclick="javaBash()">Java Bash</button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" onclick="javaPs()">Java PowerShell</button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" onclick="stringCharCode()">StringCharCode</button>
+		</form>
+        <br>
+		<div class="form-group">
+			<textarea class="form-control" id="result" rows="3" readonly></textarea>
+		</div>
         <div class="row">
             <div class="col-md-4 mx-auto text-center d-flex justify-content-between">
                 <div class="about-link">
@@ -368,4 +408,126 @@
         </div>
     </div>
 </body>
+<script src="js/crypto-js.js"></script>
+<script>
+    function encodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = btoa(text);
+    }
+    function decodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = atob(text);
+    }
+    function calculateMD5() {
+        var input = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = CryptoJS.MD5(input).toString();
+    }
+    function urlEncodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = encodeURIComponent(text);
+    }
+    function urlDecodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = decodeURIComponent(text);
+    }
+    function toHex(str) {
+        var hex = "";
+        for (var i = 0; i < str.length; i++) {
+            hex += str.charCodeAt(i).toString(16);
+        }
+        return hex;
+    }
+    function fromHex(hex) {
+        var str = "";
+        for (var i = 0; i < hex.length; i += 2) {
+            str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+        }
+        return str;
+    }
+    function hexEncodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = toHex(text);
+    }
+    function hexDecodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = fromHex(text);
+    }
+    function toUnicode(str) {
+        var unicode = "";
+        for (var i = 0; i < str.length; i++) {
+            unicode += "\\u" + str.charCodeAt(i).toString(16).padStart(4, '0');
+        }
+        return unicode;
+    }
+    function fromUnicode(unicode) {
+        var str = "";
+        var i = 0;
+        while (i < unicode.length) {
+            if (unicode[i] === '\\' && unicode[i+1] === 'u') {
+                var code = parseInt(unicode.substr(i+2, 4), 16);
+                str += String.fromCharCode(code);
+                i += 6;
+            } else {
+                str += unicode[i];
+                i++;
+            }
+        }
+        return str;
+    }
+    function uniEncodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = toUnicode(text);
+    }
+    function uniDecodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = fromUnicode(text);
+    }
+    function javaBash() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        var base = btoa(text);
+        result.value = "bash -c {echo," + base + "}|{base64,-d}|{bash,-i}";
+    }
+    function toCharCodes(str) {
+        const charCodes = [];
+        for (let i = 0; i < str.length; i++) {
+            charCodes.push(str.charCodeAt(i));
+        }
+        return "String.fromCharCode(" + charCodes.join(",") + ")";
+    }
+    function stringCharCode() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = toCharCodes(text);
+    }
+    function getPowershellCommand(cmd) {
+        const chars = cmd.split('');
+        const temp = [];
+        for (let i = 0; i < chars.length; i++) {
+            const code = unescape(encodeURIComponent(chars[i]));
+            for (let j = 0; j < code.length; j++) {
+            temp.push(code.charCodeAt(j));
+            }
+            temp.push(0);
+        }
+        const result = new Uint8Array(temp);
+        const data = btoa(String.fromCharCode.apply(null, result));
+        const prefix = "powershell.exe -NonI -W Hidden -NoP -Exec Bypass -Enc ";
+        return prefix + data;
+    }
+    function javaPs() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = getPowershellCommand(text);
+    }
+</script>
 </html>
