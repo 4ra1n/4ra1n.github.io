@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4ra1n</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #F5F5F5;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-weight: bold;
+            color: #333;
+        }
+        h1 {
+            font-size: 48px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 36px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        p {
+            color: #666;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .list-unstyled li {
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .list-unstyled li a {
+            color: #333;
+            text-decoration: none;
+        }
+        .list-unstyled li a:hover {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .about-link {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .about-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .about-link a:hover {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        .friends-link {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .friends-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .friends-link a:hover {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        .footer {
+            margin-top: 50px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #666;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #333;
+            text-decoration: none;
+        }
+        @media only screen and (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .list-unstyled li {
+                text-align: left;
+                font-size: 20px;
+            }
+            .about-link, .friends-link {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>4ra1n blog</h2>
+        <p>欢迎来到我的博客！我是&nbsp;<a href="https://github.com/4ra1n" target="_blank">4ra1n</a></p>
+        <p>主要从事 web 应用安全研究和安全开发相关工作</p>
+        <p>2020.11 - 2025.03 长亭科技 安全工程师</p>
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+                <p>Jar Analyzer Project - <a href="https://github.com/jar-analyzer/jar-analyzer" target="_blank">https://github.com/jar-analyzer/jar-analyzer</a></p>
+            </div>
+            <div class="col-md-8 mx-auto">
+                <p>Class Obfuscator Project - <a href="https://github.com/jar-analyzer/class-obf" target="_blank">https://github.com/jar-analyzer/class-obf</a></p>
+            </div>
+            <div class="col-md-8 mx-auto">
+                <p>My CVE List - <a href="https://github.com/4ra1n/4ra1n/blob/main/SECURITY.md" target="_blank">SECURITY.md</a></p>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+                <h2>2025</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a target="_blank" href="https://mp.weixin.qq.com/s/QZ5ktvJ4oGE_L0Dfvz7Wng">
+                                    001 [其他] 毕业三年
+                                </a>
+                            </li><hr>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+                <h2>2024</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="2024/001.html">001 [漏洞分析] Apache Kafka CVE-2024-31141 分析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2024/002.html">002 [漏洞分析] Apache Tomcat 竞争 RCE 分析修复和检测</a>
+                            </li><hr>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+                <h2>2023</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="2023/001.html">001 [开发知识] Maven项目Dockerfile模板</a>
+                            </li><hr>
+                            <li>
+                                <a href="2023/002.html">002 [开发知识] Java和Go之间使用GRPC调用</a>
+                            </li><hr>
+                            <li>
+                                <a href="2023/003.html">003 [开发知识] 记内网docker-push失败解决</a>
+                            </li><hr>
+                            <li>
+                                <a target="_blank" href="https://mp.weixin.qq.com/s/-Rdkv1WmYrjNWhZZK3pj6w">
+                                    004 [漏洞分析] JDK CVE-2023-21939 分析利用
+                                </a>
+                            </li><hr>
+                            <li>
+                                <a target="_blank" href="https://mp.weixin.qq.com/s/dJkZuf6Ho6EK71bbnXI0EA">
+                                    005 [JAVA安全] 记一次 Fastjson Gadget 寻找
+                                </a>
+                            </li><hr>
+                            <li>
+                                <a target="_blank" href="https://mp.weixin.qq.com/s/lmoWKK41ZQzZOh-P26VUng">
+                                    006 [JAVA安全] JDBC Attack URL 绕过合集
+                                </a>
+                            </li><hr>
+                            <li>
+                                <a target="_blank" href="https://mp.weixin.qq.com/s/iz7mAXqzcowkaxGj_1v9PA">
+                                    007 [JAVA安全] JVMTI 加密字节码详解
+                                </a>
+                            </li><hr>
+                            <li>
+                                <a target="_blank" href="https://mp.weixin.qq.com/s/FJzCGNJKvZF2Sbw6ojTMiA">
+                                    008 [JAVA安全] 使用JDK类绕过TemplatesImpl黑名单
+                                </a>
+                            </li><hr>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+                <h2>2022</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="2022/001.html">001 [JAVA安全] 浅谈 JSP Webshell 免杀</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/002.html">002 [漏洞分析] Log4j2 从 RC1 绕过到 RC2 拒绝服务</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/003.html">003 [漏洞分析] 浅谈 Log4j2 之 2.15.0 版本 RCE</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/004.html">004 [JAVA安全] 基于模拟执行的 JSP Webshell 检测</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/005.html">005 [JAVA安全] 深入分析 GadgetInspector 核心代码</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/006.html">006 [漏洞分析] 浅谈 Spring 框架 CVE-2022-22950</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/007.html">007 [JAVA安全] 从 Spring 内存马检测到隐形马</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/008.html">008 [JAVA安全] Tomcat JMXProxy 利用方式</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/009.html">009 [JAVA安全] 如何实现 Java 的内联汇编</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/010.html">010 [JAVA安全] gadget-inspector 如何处理分支</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/011.html">011 [JAVA安全] 谈谈最近失败的挖洞经历</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/012.html">012 [JAVA安全] 浅谈加载字节码触发的 Java 安全问题</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/013.html">013 [JAVA安全] 详细谈谈CVE的申请过程</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/014.html">014 [JAVA安全] 终极 Java 反序列化 Payload 缩小技术</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/015.html">015 [JAVA安全] 加载恶意字节码 Webshell 的检测</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/016.html">016 [JAVA安全] 基于污点分析的 JSP Webshell 检测</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/017.html">017 [JAVA安全] 探索 Filter 型 Tomcat 内存马的免杀</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/018.html">018 [开发知识] 学习Java Agent</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/019.html">019 [漏洞分析] Tomcat CVE-2022-29885</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/020.html">020 [JAVA安全] JFinal 框架内存马实现</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/021.html">021 [JAVA安全] Spring Cloud SpEL 简单学习</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/022.html">022 [漏洞分析] CVE-2018-1271分析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/023.html">023 [JAVA安全] 反序列化漏洞的防御与拒绝服务</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/024.html">024 [JAVA安全] Fastjson 常见利用链简单分析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/025.html">025 [开发知识] Java 并发之 CAS 原理入门</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/026.html">026 [开发知识] Java 并发之 LongAdder 源码浅析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/027.html">027 [JAVA安全] Java 中 DoS to RCE 失败的探索</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/028.html">028 [开发知识] 用 Java 手写红黑树</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/029.html">029 [JAVA安全] 浅谈 JSP Webshell 进阶免杀</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/030.html">030 [漏洞分析] CVE-2020-5405 分析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/031.html">031 [JAVA安全] 浅谈 Log4j2 不借助 dnslog 的检测</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/032.html">032 [漏洞分析] CVE-2020-1957 分析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/033.html">033 [JAVA安全] AST 在 Java 代码审计领域的尝试</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/034.html">034 [漏洞分析] Apache Log4j2 拒绝服务漏洞分析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/035.html">035 [漏洞分析] CVE-2017-4971 分析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/036.html">036 [漏洞分析] CVE-2018-1273 分析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/037.html">037 [JAVA安全] 浅谈 Log4j2 信息泄露与不出网回显</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/038.html">038 [JAVA安全] 半自动挖洞初步实践</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/039.html">039 [JAVA安全] 一处 JS 反调试引发的思考</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/040.html">040 [JAVA安全] CC7 链 HashTable 触发点深入研究</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/041.html">041 [JAVA安全] 一种 Tomcat 内存马持久化思路</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/042.html">042 [开发知识] Java 并发之 FutureTask 源码浅析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/043.html">043 [JAVA安全] Agent 内存马的自动分析与查杀</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/044.html">044 [漏洞分析] CVE-2016-4977 分析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/045.html">045 [JAVA安全] 详解 Java 自动代码审计工具实现</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/046.html">046 [漏洞分析] CVE-2017-8046 分析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/047.html">047 [开发知识] Java HashMap 源码研究</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/048.html">048 [JAVA安全] 基于 GI 的自动 Java 代码审计工具实现</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/049.html">049 [漏洞分析] CVE-2018-1270 分析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/050.html">050 [漏洞分析] 浅谈 Shiro CVE-2022-32532</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/052.html">051 [开发知识] 简单学习JVM GC与类加载机制 </a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/053.html">052 [WEB安全] 简单的信息收集</a>
+                            </li><hr>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+                <h2>Java 安全面试问题</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="2022/JAVASEC/001.html">001 [JAVA安全] JDK 相关安全问题</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/JAVASEC/002.html">002 [JAVA安全] Shiro 相关安全问题</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/JAVASEC/003.html">003 [JAVA安全] FastJSON 相关安全问题</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/JAVASEC/004.html">004 [JAVA安全] Log4j2 相关安全问题</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/JAVASEC/005.html">005 [JAVA安全] Spring 相关安全问题</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/JAVASEC/006.html">006 [JAVA安全] SpringBoot 相关安全问题</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/JAVASEC/007.html">007 [JAVA安全] 内存马相关安全问题</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/JAVASEC/008.html">008 [JAVA安全] CC 链细节相关安全问题</a>
+                            </li><hr>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+                <h2>PE 学习笔记</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="2022/054.html">001 [PE] PE学习(1) FileBuffer与ImageBuffer转换</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/055.html">002 [PE] PE学习(2) 代码节空白区手动添加代码</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/056.html">003 [PE] PE学习(3) 代码节空白区任意添加代码</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/057.html">004 [PE] PE学习(4) 新增节添加代码</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/058.html">005 [PE] PE学习(5) 扩大最后一节</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/059.html">006 [PE] PE学习(6) RVA与FOA互转</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/060.html">007 [PE] PE学习(7) 合并为一个节</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/061.html">008 [PE] PE学习(8) 导出表学习与解析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/062.html">009 [PE] PE学习(9) 用名称序号找导出函数地址</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/063.html">010 [PE] PE学习(10) 重定位表介绍与解析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/064.html">011 [PE] PE学习(11) 移动导出表到新增节</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/065.html">012 [PE PE学习(12) 移动重定位表到新增节</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/066.html">013 [PE] PE学习(13) 解析导入表和IAT表</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/067.html">014 [PE] PE学习(14) 绑定导入表介绍与解析</a>
+                            </li><hr>
+                            <li>
+                                <a href="2022/068.html">015 [PE] PE学习(15) 导入表注入DLL</a>
+                            </li><hr>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+                <h2>TOOLS</h2>
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" id="text" rows="3"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="encodeText()">Base64编码</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="decodeText()">Base64解码</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="urlEncodeText()">URL编码</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="urlDecodeText()">URL解码</button>
+                    <br>
+                    <br>
+                    <button type="button" class="btn btn-primary" onclick="hexEncodeText()">Hex编码</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="hexDecodeText()">Hex解码</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="uniEncodeText()">Unicode编码</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="uniDecodeText()">Unicode解码</button>
+                    <br>
+                    <br>
+                    <button type="button" class="btn btn-primary" onclick="calculateMD5()">MD5</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="javaBash()">Java Bash</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="javaPs()">Java PowerShell</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="stringCharCode()">String</button>
+                </form>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+		        <div class="form-group">
+			        <textarea class="form-control" id="result" rows="3" readonly></textarea>
+		        </div>
+            </div>
+        </div>
+        <div class="col-md-4 mx-auto text-center d-flex justify-content-between">
+            <div class="about-link">
+                <a href="https://github.com/4ra1n" target="_blank" class="btn btn-outline-primary">关于</a>
+            </div>
+            <div class="friends-link">
+                <a href="friends.html" target="_blank" class="btn btn-outline-primary">友链</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="footer">
+                    © 2023 4ra1n
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/crypto-js.js"></script>
+<script>
+    function encodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = btoa(text);
+    }
+    function decodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = atob(text);
+    }
+    function calculateMD5() {
+        var input = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = CryptoJS.MD5(input).toString();
+    }
+    function urlEncodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = encodeURIComponent(text);
+    }
+    function urlDecodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = decodeURIComponent(text);
+    }
+    function toHex(str) {
+        var hex = "";
+        for (var i = 0; i < str.length; i++) {
+            hex += str.charCodeAt(i).toString(16);
+        }
+        return hex;
+    }
+    function fromHex(hex) {
+        var str = "";
+        for (var i = 0; i < hex.length; i += 2) {
+            str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+        }
+        return str;
+    }
+    function hexEncodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = toHex(text);
+    }
+    function hexDecodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = fromHex(text);
+    }
+    function toUnicode(str) {
+        var unicode = "";
+        for (var i = 0; i < str.length; i++) {
+            unicode += "\\u" + str.charCodeAt(i).toString(16).padStart(4, '0');
+        }
+        return unicode;
+    }
+    function fromUnicode(unicode) {
+        var str = "";
+        var i = 0;
+        while (i < unicode.length) {
+            if (unicode[i] === '\\' && unicode[i+1] === 'u') {
+                var code = parseInt(unicode.substr(i+2, 4), 16);
+                str += String.fromCharCode(code);
+                i += 6;
+            } else {
+                str += unicode[i];
+                i++;
+            }
+        }
+        return str;
+    }
+    function uniEncodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = toUnicode(text);
+    }
+    function uniDecodeText() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = fromUnicode(text);
+    }
+    function javaBash() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        var base = btoa(text);
+        result.value = "bash -c {echo," + base + "}|{base64,-d}|{bash,-i}";
+    }
+    function toCharCodes(str) {
+        const charCodes = [];
+        for (let i = 0; i < str.length; i++) {
+            charCodes.push(str.charCodeAt(i));
+        }
+        return "String.fromCharCode(" + charCodes.join(",") + ")";
+    }
+    function stringCharCode() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = toCharCodes(text);
+    }
+    function getPowershellCommand(cmd) {
+        const chars = cmd.split('');
+        const temp = [];
+        for (let i = 0; i < chars.length; i++) {
+            const code = unescape(encodeURIComponent(chars[i]));
+            for (let j = 0; j < code.length; j++) {
+            temp.push(code.charCodeAt(j));
+            }
+            temp.push(0);
+        }
+        const result = new Uint8Array(temp);
+        const data = btoa(String.fromCharCode.apply(null, result));
+        const prefix = "powershell.exe -NonI -W Hidden -NoP -Exec Bypass -Enc ";
+        return prefix + data;
+    }
+    function javaPs() {
+        var text = document.getElementById("text").value;
+        var result = document.getElementById("result");
+        result.value = getPowershellCommand(text);
+    }
+</script>
+</html>

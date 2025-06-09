@@ -1,0 +1,595 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>[备份] 详细谈谈CVE的申请过程</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='备份详细谈谈cve的申请过程'><span>[备份]详细谈谈CVE的申请过程</span></h1><p><span>这几个月和各种安全组织/机构交流（对线）得出一些结论，写出来可能会对安全圈的朋友有一些帮助，对于不挖洞的人来说是拓宽知识，对于挖洞师傅来说可以少走弯路</span></p><p><span>未来的话，不会再挖洞了，虽然还是处于安全圈，但主要的精力会放在开发相关，很大的概率不会再碰漏洞相关的事情，并不是说挖洞不好，只是我不擅长也不愿意再做了</span></p><h2 id='自行申请'><span>自行申请</span></h2><p><span>自行申请CVE的表单是：</span><a href='https://cveform.mitre.org/' target='_blank' class='url'>https://cveform.mitre.org/</a></p><p><span>选择</span><code>Select a request type</code><span>为</span><code>Report Vulnerability/Request CVE ID</code></p><p><span>其中的</span><code>Attack vector(s)</code><span>是填写</span><code>POC</code><span>的地方，但只能写一个普通的</span><code>URL</code><span>因此一般情况下，需要自己找一个第三方的平台，例如</span><code>Github</code><span>仓库，写一份</span><code>POC</code><span>然后填写</span><code>URL</code><span>到这里</span></p><p><span>当我们填写完表单后，会收到一份邮件：大致意思是</span><code>CVE</code><span>团队已经确定收到了报告，但无法确定处理时间，通常情况下他们会根据漏洞的紧急情况来处置</span></p><p><span>一般情况下，这种方式需要等待三个月以上，甚至一年以上。这时候官方会回复你一封邮件，意思是：我们已经为你提交的资料分配了</span><code>CVE</code><span>编号，但是并未公开，所以是保留状态。</span></p><p><span>很多师傅认为到了这一步就算成功申请</span><code>CVE</code><span>了，其实是错误的。还有下一步：公开</span><code>CVE</code></p><p><span>继续前往</span><code>CVE</code><span>申请的表单，选择</span><code>Select a request type</code><span>为</span><code>Notify CVE about a publication</code><span>选项，这一步需要等待大概两三周，然后这个</span><code>CVE</code><span>的信息将会被公开，比如你填写的描述信息，参考引用信息等。但到了这一步，这个</span><code>CVE</code><span>还不算是完全申请</span></p><p><span>最后一步是，等待</span><code>NVD</code><span>给出</span><code>CVSS</code><span>评分，这一步大概需要两三周的时间，例如</span><code>CVE-2022-29885</code><span>的信息：</span><a href='https://nvd.nist.gov/vuln/detail/CVE-2022-29885' target='_blank' class='url'>https://nvd.nist.gov/vuln/detail/CVE-2022-29885</a></p><p><span>总结：</span></p><ul><li><span>这种方式申请</span><code>CVE</code><span>的流程极长，一年以上也不罕见</span></li><li><span>这种方式一般不被大家认可，原因：官方不会看你的</span><code>POC</code><span>是什么，只要申请资料没问题就给通过，因此提交的是垃圾洞，甚至不是漏洞，无论多么小众的项目，都会给你通过。显而易见没有含金量</span></li><li><span>新人可以随便搞一两个图一乐，但不要通过这种方式水太多，写简历上一定是扣分的</span></li></ul><h2 id='标准流程'><span>标准流程</span></h2><p><span>其实自行申请并不是</span><code>CVE</code><span>的标准流程，标准流程如下：</span></p><ul><li><span>发现漏洞向开源项目报告漏洞（通过邮箱或者</span><code>h1</code><span>等方式）</span></li><li><span>开源项目负责人确认漏洞并且进行修复</span></li><li><span>开源项目负责人向</span><code>CVE</code><span>机构申请</span><code>CVE ID</code><span>（</span><code>CVE</code><span>机构有很多）</span></li><li><code>CVE</code><span>机构分配</span><code>CVE ID</code><span>（这时候报告者并不知晓）</span></li><li><span>开源项目发布包含安全修复的新版本</span></li><li><span>开源项目负责人发布安全公告（通过</span><code>Github</code><span>或者邮箱）</span></li><li><span>开源项目负责人通知</span><code>CVE</code><span>机构公开该</span><code>CVE</code><span>信息</span></li><li><code>NVD</code><span>对</span><code>CVE</code><span>信息进行审核和评分</span></li></ul><p><span>可见，如果漏洞发现者绕过项目管理者直接申请</span><code>CVE</code><span>是一种不妥的方式，这也是自行申请不被认可最重要的原因。项目负责人都没同意和确认，谁来确认这个漏洞的真实和有效性？</span><code>CVE</code><span>分配团队是不会对申请信息进行审核的，你的</span><code>POC</code><span>是否有效没人看，也不会对申请项目有任何要求，不需要多少的</span><code>Star</code><span>或者知名度，哪怕你自己写个</span><code>Demo</code><span>项目申请</span><code>CVE</code><span>都会同意，只要你不怕人喷</span></p><p><span>按照标准流程，下面结合真实的案例来谈谈</span></p><h2 id='apache'><span>Apache</span></h2><p><span>相信很多师傅都在尝试挖</span><code>Apache</code><span>项目漏洞，所以首先谈一谈这个：</span></p><p><span>这种方式其实是基于上述标准流程的，但</span><code>CVE</code><span>机构变成了</span><code>Apache</code><span>组织，该组织分配</span><code>CVE ID</code><span>的速度远远快于</span><code>MITRE</code><span>官方。但要求是必须</span><code>Apache</code><span>项目负责人才有资格申请，这也保证了每个出自</span><code>Apache</code><span>的</span><code>CVE</code><span>都得到了官方的确认，大大提高了含金量和可信度</span></p><p><span>第一步需要做的是确定该项目是否存在</span><strong><span>安全漏洞报告</span></strong><span>方式：可以在搜索引擎中搜索对应的项目页面，然后浏览其中的</span><code>Security</code><span>页面。很多的</span><code>Apache</code><span>项目的安全页面是直接复制</span><code>Apache Security</code><span>页面的，该页面告诉你应该发送漏洞报告到</span><code>security@apache.org</code><span>邮箱，这种情况编辑漏洞报告发送到总邮箱即可，然后总邮箱负责转交给对应的项目管理者</span></p><p><span>但并不是所有的项目都应该发送到这里：例如</span><code>Tomcat</code><span>和</span><code>Shiro</code><span>都有自己的邮箱：</span><code>security@tomcat.apache.org</code><span>和</span><code>security@shiro.apache.org</code><span>。按照</span><code>Apache</code><span>的规定，如果某个项目存在了自己的</span><code>security</code><span>邮箱，那么不建议发送给总邮箱</span><code>security@apache.org</code><span>（曾经我这么干过被告知不建议这样做）</span></p><p><span>值得一说的是某些项目的安全报告方式是非</span><code>security</code><span>邮箱，例如</span><code>Apache Flink</code><span>安全页面（</span><a href='https://flink.apache.org/security.html' target='_blank' class='url'>https://flink.apache.org/security.html</a><span>）写着</span><code>private@flink.apache.org</code><span>邮箱。这就是另外一个方式了，任何一个</span><code>Apache</code><span>项目都有自己的</span><code>private</code><span>邮箱，该邮箱用于项目</span><code>PMC</code><span>（管理者）内部交流，但是外部可以发送邮件进来</span></p><p><span>最后谈一谈总邮箱</span><code>security@apache.org</code><span>对于漏洞的处理过程：</span></p><ul><li><span>收到某个项目的漏洞报告</span></li><li><span>转发给对应项目的</span><code>private</code><span>邮箱并告知这是安全漏洞</span></li><li><span>等待对应项目确认漏洞</span></li><li><span>对应项目</span><code>PMC</code><span>向总邮箱申请</span><code>CVE ID</code></li><li><span>对应项目修复漏洞后发布</span><code>CVE</code><span>公告</span></li></ul><p><span>按照</span><code>Apache</code><span>安全团队的规定，发布</span><code>CVE</code><span>公告的时候，应该抄送一份到</span><code>oss-security</code><span>邮箱: </span><a href='https://oss-security.openwall.org' target='_blank' class='url'>https://oss-security.openwall.org</a></p><p><strong><span>做安全研究的师傅一定要订阅该邮箱，随时会更新开源项目的各种最新漏洞</span></strong></p><p><span>总结：</span></p><ul><li><span>每个</span><code>Apache</code><span>项目分配的</span><code>CVE ID</code><span>都能够确定其真实性和有效性，提高了含金量，这种方式脱离了水</span><code>CVE</code><span>的范围，但有可能漏洞本身比较鸡肋，例如拒绝服务和各种无危害漏洞，也会被某些人喷垃圾洞</span></li><li><code>Apache</code><span>项目处理漏洞的过程较快，最快可以一个月内处理完毕，当然也有慢的项目，个别老项目处理漏洞的过程需要半年以上，因为他们发布新版本的频率很低，除非漏洞极其高危，否则项目负责人不会选择专门为某个漏洞特意发布规划之外的版本</span></li><li><span>一般情况没赏金，极个别的</span><code>Apache</code><span>项目有</span><code>h1</code><span>页面：</span><a href='https://hackerone.com/apache_nifi' target='_blank' class='url'>https://hackerone.com/apache_nifi</a></li></ul><h2 id='spring'><span>Spring</span></h2><p><span>对于</span><code>Spring</code><span>系列项目来说，就比较省心了，发现漏洞直接报告给：</span><code>security@vmware.com</code><span>邮箱</span></p><p><span>处理效率极快，最快在一个工作日内就会给出回复，最慢三到五天给出确认。但确认后还需要等待新版本的发布，一般来说一个月会发布一个新版本，然后官方会在这个页面同步</span><code>CVE</code><span>公告：</span><a href='https://tanzu.vmware.com/security' target='_blank' class='url'>https://tanzu.vmware.com/security</a></p><p><span>对于为什么</span><code>Spring</code><span>项目处理过程极快，比较好理解，因为</span><code>Apache</code><span>项目的管理者是用爱发电，主职不是该项目，有空看一看。而</span><code>Spring</code><span>项目是一个公司，保证安全是他们的责任</span></p><p><span>总结：</span></p><ul><li><span>简单省心，任何</span><code>Spring</code><span>系列的项目只需要报告到一处，然后静待确认和安全公告即可</span></li><li><span>处理效率极快，可以最快得到漏洞确认信息</span></li><li><span>含金量较高，尤其在</span><code>Java</code><span>开发领域，最知名的系列框架</span></li><li><span>没有任何赏金，为爱发电</span></li></ul><h2 id='oracle'><span>Oracle</span></h2><p><span>最后谈一谈</span><code>Oracle</code><span>的漏洞，一年中</span><code>Oracle</code><span>会发布四次安全公告，每隔三个月左右，安全公告地址是：</span><a href='https://www.oracle.com/security-alerts/' target='_blank' class='url'>https://www.oracle.com/security-alerts/</a></p><p><span>如果发现了</span><code>Oracle</code><span>产品的漏洞，应该报告到</span><code>secalert_us@oracle.com</code><span>邮箱，通常第二天就会确认收到了漏洞，接着他们会对漏洞进行分类和初审，能够通过初审的漏洞会分配一个</span><code>ID</code><span>号，在分配成功后官方会回复你。在每三个月的安全公告前，官方会再次回复你，告知你报告的漏洞是否已被处理，是否会给你分配</span><code>CVE ID</code><span>以及</span><code>CVSS</code><span>分数，以及询问你致谢的信息等</span></p><p><span>总结：</span></p><ul><li><span>简单省心，所有</span><code>Oracle</code><span>产品的漏洞只需要报告到一处，然后静待确认和安全公告即可</span></li><li><span>处理效率一般，某些项目需要等待很长时间才会修复（半年以上）</span></li><li><span>含金量较高，毕竟是老牌国际知名企业，安全公告内容很详细</span></li><li><span>没有任何赏金，为爱发电</span></li></ul><h2 id='最后'><span>最后</span></h2><p><span>相信以上内容，可以解决</span><code>Java</code><span>安全研究者90%的问题，因为绝大多数</span><code>Java</code><span>项目都属于上述组织或者公司。例如谷歌和微软，包含的</span><code>Java</code><span>产品不多，存在漏洞的可能性就更低了，谷歌有自己的一套漏洞报告平台，无需上述这样原始的邮箱报告，微软直接报告到MSRC，也更加先进</span></p><p><span>不难发现，做</span><code>Java</code><span>安全研究给开源项目报告漏洞，在99%的情况下是没有任何赏金的。想要靠这个赚钱，并不是没有路子，只是比较麻烦，个别的公司和组织收购开源项目漏洞，然后该公司组织报告到官方，真正的漏洞发现者可以获得赏金。国外有知名的公司搞这种操作，国内似乎也有</span></p><p><span>学习路上总会有冷嘲热讽阴阳怪气的人，所以有时候少说多做，毕竟没有任何人发自内心希望你更好</span></p><p><span>本文很多地方也是我四处碰壁得到的经验，希望可以帮助到一些安全研究师傅</span></p></div></div>
+</body>
+</html>
