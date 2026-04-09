@@ -1,50 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friends - 4ra1n</title>
+<link rel="icon" href="favicon.ico">
+<script src="js/tailwind.js"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{sand:{50:'#FDF8F0',100:'#F5EDE0',200:'#EBE0CC',300:'#D4C5B0',400:'#B8A690',500:'#9C8870',600:'#7A6B55',700:'#5C503F',800:'#3D352A',900:'#2A2420'},claude:{orange:'#C96442',amber:'#D4A574',warm:'#E8DCCA',cream:'#F5F0E8',bone:'#FAF7F2'}},fontFamily:{mono:['JetBrains Mono','Fira Code','Consolas','monospace'],sans:['Inter','-apple-system','sans-serif']}}}}
+</script>
+<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">友链</h1>
-        <p class="text-center">可以通过邮箱联系我添加友链：emyiqing@gmail.com</p>
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Y4tacker</h5>
-                        <p class="card-text"><a href="https://y4tacker.github.io/" target="_blank">https://y4tacker.github.io/</a></p>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Ar3h</h5>
-                        <p class="card-text"><a href="https://ar3h.github.io/" target="_blank">https://ar3h.github.io/</a></p>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">uname</h5>
-                        <p class="card-text"><a href="https://unam4.github.io/" target="_blank">https://unam4.github.io/</a></p>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">SpringKill</h5>
-                        <p class="card-text"><a href="https://springkill.github.io/" target="_blank">https://springkill.github.io/</a></p>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">phith0n</h5>
-                        <p class="card-text"><a href="https://www.leavesongs.com/" target="_blank">https://www.leavesongs.com/</a></p>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">chybeta</h5>
-                        <p class="card-text"><a href="https://chybeta.github.io/" target="_blank">https://chybeta.github.io/</a></p>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">EndlessParadox</h5>
-                        <p class="card-text"><a href="https://blog.endlessparadox.com/" target="_blank">https://blog.endlessparadox.com/</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<body class="bg-claude-bone text-sand-800 font-sans antialiased">
+<div class="max-w-[880px] mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+<div class="bg-claude-cream border border-sand-200 rounded-t-xl px-5 py-3 flex items-center gap-3 shadow-sm">
+  <div class="flex gap-1.5"><span class="w-3 h-3 rounded-full bg-red-400"></span><span class="w-3 h-3 rounded-full bg-yellow-400"></span><span class="w-3 h-3 rounded-full bg-green-400"></span></div>
+  <span class="font-mono text-xs text-sand-500 font-medium">4ra1n@blog ~/friends</span>
+</div>
+<div class="bg-white border border-t-0 border-sand-200 rounded-b-xl px-5 sm:px-7 py-7 shadow-sm">
+
+<div class="flex items-baseline gap-2 font-mono text-sm mb-4">
+  <span class="text-claude-orange font-bold select-none">$</span>
+  <span>cat friends.json</span>
+</div>
+
+<div class="font-mono text-xs font-semibold text-sand-400 uppercase tracking-wider mb-4 pb-2 border-b border-sand-100">Friends</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+  <a href="https://y4tacker.github.io/" target="_blank" class="flex items-center gap-3 p-3.5 bg-claude-cream border border-sand-200 rounded-lg hover:border-claude-amber hover:shadow-md hover:-translate-y-0.5 transition-all">
+    <div class="w-10 h-10 rounded-full bg-sand-200 flex items-center justify-center font-mono text-base font-bold text-sand-600 shrink-0">Y</div>
+    <div class="min-w-0"><div class="font-mono text-sm font-semibold text-sand-800">Y4tacker</div><div class="text-xs text-sand-400 truncate mt-0.5">y4tacker.github.io</div></div>
+  </a>
+  <a href="https://ar3h.github.io/" target="_blank" class="flex items-center gap-3 p-3.5 bg-claude-cream border border-sand-200 rounded-lg hover:border-claude-amber hover:shadow-md hover:-translate-y-0.5 transition-all">
+    <div class="w-10 h-10 rounded-full bg-sand-200 flex items-center justify-center font-mono text-base font-bold text-sand-600 shrink-0">A</div>
+    <div class="min-w-0"><div class="font-mono text-sm font-semibold text-sand-800">Ar3h</div><div class="text-xs text-sand-400 truncate mt-0.5">ar3h.github.io</div></div>
+  </a>
+  <a href="https://unam4.github.io/" target="_blank" class="flex items-center gap-3 p-3.5 bg-claude-cream border border-sand-200 rounded-lg hover:border-claude-amber hover:shadow-md hover:-translate-y-0.5 transition-all">
+    <div class="w-10 h-10 rounded-full bg-sand-200 flex items-center justify-center font-mono text-base font-bold text-sand-600 shrink-0">U</div>
+    <div class="min-w-0"><div class="font-mono text-sm font-semibold text-sand-800">uname</div><div class="text-xs text-sand-400 truncate mt-0.5">unam4.github.io</div></div>
+  </a>
+  <a href="https://springkill.github.io/" target="_blank" class="flex items-center gap-3 p-3.5 bg-claude-cream border border-sand-200 rounded-lg hover:border-claude-amber hover:shadow-md hover:-translate-y-0.5 transition-all">
+    <div class="w-10 h-10 rounded-full bg-sand-200 flex items-center justify-center font-mono text-base font-bold text-sand-600 shrink-0">S</div>
+    <div class="min-w-0"><div class="font-mono text-sm font-semibold text-sand-800">SpringKill</div><div class="text-xs text-sand-400 truncate mt-0.5">springkill.github.io</div></div>
+  </a>
+  <a href="https://www.leavesongs.com/" target="_blank" class="flex items-center gap-3 p-3.5 bg-claude-cream border border-sand-200 rounded-lg hover:border-claude-amber hover:shadow-md hover:-translate-y-0.5 transition-all">
+    <div class="w-10 h-10 rounded-full bg-sand-200 flex items-center justify-center font-mono text-base font-bold text-sand-600 shrink-0">P</div>
+    <div class="min-w-0"><div class="font-mono text-sm font-semibold text-sand-800">phith0n</div><div class="text-xs text-sand-400 truncate mt-0.5">leavesongs.com</div></div>
+  </a>
+  <a href="https://chybeta.github.io/" target="_blank" class="flex items-center gap-3 p-3.5 bg-claude-cream border border-sand-200 rounded-lg hover:border-claude-amber hover:shadow-md hover:-translate-y-0.5 transition-all">
+    <div class="w-10 h-10 rounded-full bg-sand-200 flex items-center justify-center font-mono text-base font-bold text-sand-600 shrink-0">C</div>
+    <div class="min-w-0"><div class="font-mono text-sm font-semibold text-sand-800">chybeta</div><div class="text-xs text-sand-400 truncate mt-0.5">chybeta.github.io</div></div>
+  </a>
+  <a href="https://blog.endlessparadox.com/" target="_blank" class="flex items-center gap-3 p-3.5 bg-claude-cream border border-sand-200 rounded-lg hover:border-claude-amber hover:shadow-md hover:-translate-y-0.5 transition-all">
+    <div class="w-10 h-10 rounded-full bg-sand-200 flex items-center justify-center font-mono text-base font-bold text-sand-600 shrink-0">E</div>
+    <div class="min-w-0"><div class="font-mono text-sm font-semibold text-sand-800">EndlessParadox</div><div class="text-xs text-sand-400 truncate mt-0.5">blog.endlessparadox.com</div></div>
+  </a>
+</div>
+
+<div class="mt-8">
+  <div class="flex items-baseline gap-2 font-mono text-sm mb-2">
+    <span class="text-claude-orange font-bold select-none">$</span>
+    <span>echo "添加友链请联系"</span>
+  </div>
+  <p class="text-sm text-sand-600 ml-4">邮箱: <a href="mailto:emyiqing@gmail.com" class="text-claude-orange font-medium hover:underline">emyiqing@gmail.com</a></p>
+</div>
+
+<div class="flex justify-center gap-3 mt-8 mb-4">
+  <a href="index.html" class="font-mono text-[13px] font-medium px-5 py-2 border border-sand-200 rounded-lg text-sand-500 hover:border-claude-amber hover:text-claude-orange hover:bg-amber-50 transition">← 返回首页</a>
+</div>
+<div class="text-center pt-4 border-t border-sand-100 mt-4">
+  <p class="font-mono text-xs text-sand-400">© 2023-2026 4ra1n</p>
+</div>
+
+</div>
+</div>
 </body>
 </html>
