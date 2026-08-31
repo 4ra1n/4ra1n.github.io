@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="工具 - 编码转换 / 解码 / 变换，链式流水线处理">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.ico" sizes="any">
+<title>工具 - 4ra1n</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --text: #1a1a1a;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --bg: #ffffff;
+    --accent: #0969da;
+    --card: #f6f8fa;
+    --ring: rgba(9, 105, 218, 0.18);
+    --accent-soft: rgba(9, 105, 218, 0.10);
+    --shadow: rgba(0, 0, 0, 0.08);
+    --c-encode: #0969da;
+    --c-decode: #1a7f37;
+    --c-transform: #9a6700;
+    --c-danger: #cf222e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: #e6e6e6;
+      --muted: #9ca3af;
+      --line: #30363d;
+      --bg: #0d1117;
+      --accent: #58a6ff;
+      --card: #161b22;
+      --ring: rgba(88, 166, 255, 0.20);
+      --accent-soft: rgba(88, 166, 255, 0.15);
+      --shadow: rgba(0, 0, 0, 0.40);
+      --c-encode: #58a6ff;
+      --c-decode: #3fb950;
+      --c-transform: #d29922;
+      --c-danger: #f85149;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 2.5rem 1.25rem 4rem;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+          "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    accent-color: var(--accent);
+  }
+  ::selection { background: var(--accent-soft); }
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    animation: pageIn 0.35s ease both;
+  }
+  @keyframes pageIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.6rem;
+  }
+  .back { font-size: 0.875rem; color: var(--muted); text-decoration: none; }
+  .back:hover { color: var(--accent); }
+
+  .hero-row { display: flex; align-items: center; gap: 0.9rem; }
+  .hero-mark {
+    flex: none;
+    width: 2.7rem; height: 2.7rem;
+    display: grid; place-items: center;
+    background: var(--card);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    color: var(--accent);
+    font: 600 0.85rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  h1 { font-size: 1.3rem; font-weight: 600; margin: 0; }
+  .hero-sub { margin: 0.2rem 0 0; color: var(--muted); font-size: 0.875rem; }
+  .hero-ref { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.75rem; }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.1rem;
+    margin: 1.2rem 0 0.9rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+  .ldot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .lg-encode .ldot { background: var(--c-encode); }
+  .lg-decode .ldot { background: var(--c-decode); }
+  .lg-transform .ldot { background: var(--c-transform); }
+  .lg-danger .ldot { background: var(--c-danger); }
+
+  .utilities {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 1.6rem;
+  }
+  .util-label { font-size: 0.75rem; color: var(--muted); margin-right: 0.2rem; }
+
+  button { font-family: inherit; }
+  .chip {
+    --chip-c: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8125rem;
+    line-height: 1;
+    color: var(--text);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.42rem 0.8rem;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, color 0.15s,
+                transform 0.1s, box-shadow 0.15s;
+  }
+  .chip:hover {
+    border-color: var(--chip-c);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px var(--shadow);
+  }
+  .chip:active { transform: translateY(0); }
+  .chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--chip-c); flex: none; }
+  .chip svg { flex: none; }
+  .chip.t-encode { --chip-c: var(--c-encode); }
+  .chip.t-decode { --chip-c: var(--c-decode); }
+  .chip.t-transform { --chip-c: var(--c-transform); }
+  .chip.t-danger { --chip-c: var(--c-danger); }
+  .chip.on {
+    background: var(--chip-c);
+    border-color: var(--chip-c);
+    color: var(--bg);
+  }
+  .chip.on .dot { background: var(--bg); }
+  .chip.util { color: var(--accent); }
+
+  .icon-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 0.28rem 0.6rem;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .icon-btn:hover { color: var(--accent); border-color: var(--accent); }
+  .icon-btn svg { flex: none; }
+
+  .steps { margin-top: 0.4rem; }
+  .step { position: relative; padding-left: 2.5rem; }
+  .step + .step { margin-top: 1.5rem; }
+  .step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 0.86rem;
+    top: 2.5rem;
+    bottom: -1.5rem;
+    width: 2px;
+    border-radius: 2px;
+    background: var(--line);
+  }
+  .step-num {
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    display: grid;
+    place-items: center;
+    background: var(--bg);
+    border: 1.5px solid var(--accent);
+    border-radius: 50%;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    z-index: 1;
+  }
+  .step-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.85rem 1rem 1rem;
+  }
+  .step.enter .step-card { animation: stepIn 0.28s ease both; }
+  .step.enter .step-num { animation: popIn 0.28s ease both; }
+  @keyframes stepIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes popIn {
+    0% { transform: scale(0.4); opacity: 0; }
+    70% { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .step-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 1.7rem;
+    margin-bottom: 0.55rem;
+  }
+  .step-title { font-size: 0.8125rem; font-weight: 600; color: var(--muted); }
+  .step-badge {
+    display: inline-block;
+    padding: 0.12rem 0.6rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  .step-meta {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  textarea {
+    width: 100%;
+    display: block;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.65rem 0.85rem;
+    font: 0.875rem/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    resize: vertical;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--ring);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.8rem;
+  }
+  .empty-hint {
+    margin-top: 0.8rem;
+    font-size: 0.8125rem;
+    color: var(--muted);
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    padding: 0.6rem 0.85rem;
+  }
+  .hidden { display: none !important; }
+
+  #toast {
+    position: fixed;
+    top: 1.4rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(-180%);
+    display: flex;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--accent);
+    box-shadow: 0 4px 14px var(--shadow);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.45rem 1.1rem;
+    font-size: 0.875rem;
+    pointer-events: none;
+    visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2),
+                visibility 0s linear 0.3s;
+    z-index: 99;
+  }
+  #toast.show {
+    transform: translateX(-50%) translateY(0);
+    visibility: visible;
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2),
+                visibility 0s linear 0s;
+  }
+  #toast::before {
+    content: '✓';
+    color: var(--c-decode);
+    font-weight: 700;
+    margin-right: 0.45rem;
+  }
+
+  footer {
+    margin-top: 3rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    body { padding: 1.6rem 0.9rem 3rem; }
+    .step { padding-left: 2rem; }
+    .step:not(:last-child)::before { left: 0.66rem; }
+    .step-num { width: 1.5rem; height: 1.5rem; font-size: 0.7rem; }
+    .hero-row { gap: 0.7rem; }
+    h1 { font-size: 1.15rem; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="top-bar">
+    <a class="back" href="./">&larr; 4ra1n</a>
+    <button class="icon-btn" id="tool-reset" type="button">
+      <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9M13.5 2.5V5h-2.5"/></svg>
+      <span>重置</span>
+    </button>
+  </div>
+
+  <header>
+    <div class="hero-row">
+      <span class="hero-mark">&lt;/&gt;</span>
+      <div>
+        <h1>工具</h1>
+        <p class="hero-sub">编码 · 解码 · 变换 · 执行，链式流水线处理</p>
+        <p class="hero-ref">参考 P牛 的 『代码审计』小工具</p>
+      </div>
+    </div>
+    <div class="legend">
+      <span class="lg-encode"><i class="ldot"></i>编码</span>
+      <span class="lg-decode"><i class="ldot"></i>解码</span>
+      <span class="lg-transform"><i class="ldot"></i>变换 / 生成</span>
+      <span class="lg-danger"><i class="ldot"></i>执行</span>
+    </div>
+  </header>
+
+  <div class="utilities" id="tool-utilities"><span class="util-label">快捷输入</span></div>
+
+  <div class="steps" id="tool-root"></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <footer>全部计算在本地浏览器 JS 完成，无数据上传</footer>
+</main>
+<script src="./libs/crypto-js.min.js" defer></script>
+<script src="./libs/clipboard.min.js" defer></script>
+<script src="./tool.js" defer></script>
+</body>
+</html>
