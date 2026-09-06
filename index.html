@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="4ra1n - Independent Security Researcher / 独立安全研究员">
+<link rel="icon" href="favicon.ico" sizes="any">
+<title>4ra1n - Independent Security Researcher</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --text: #1a1a1a;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --bg: #ffffff;
+    --accent: #0969da;
+    --card: #f6f8fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: #e6e6e6;
+      --muted: #9ca3af;
+      --line: #30363d;
+      --bg: #0d1117;
+      --accent: #58a6ff;
+      --card: #161b22;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 2.5rem 1.25rem 4rem;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+          "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+
+  body.zh .i18n-en { display: none; }
+  body.en .i18n-zh { display: none; }
+
+  .top-nav {
+    float: right;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 14px;
+  }
+  .top-nav .nav-link { color: var(--accent); text-decoration: none; }
+  .top-nav .nav-link:hover { text-decoration: underline; }
+  .top-nav .nav-sep { color: var(--muted); }
+  .lang-switch {
+    font-size: 14px;
+    color: var(--accent);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  header img {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    display: block;
+  }
+  h1 { font-size: 1.75rem; margin: 1rem 0 0; }
+  .title { color: var(--muted); margin: 0.25rem 0 0.75rem; }
+  .intro { margin: 0.75rem 0; }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.9rem 0 0;
+  }
+  .skills span {
+    background: var(--card);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 0.12rem 0.7rem;
+    font-size: 0.875rem;
+  }
+
+  .mottos {
+    margin: 1.1rem 0 0;
+    padding-left: 0.9rem;
+    border-left: 3px solid var(--line);
+    color: var(--muted);
+    font-size: 0.9375rem;
+  }
+  .mottos p { margin: 0.15rem 0; }
+  .links a + a { margin-left: 1rem; }
+
+  .contact { margin: 0.75rem 0 0; }
+  .contact-title { margin: 0 0 0.4rem; }
+  .email-cmd {
+    margin: 0;
+    background: var(--card);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    padding: 0.6rem 0.85rem;
+    overflow-x: auto;
+  }
+  .email-cmd code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    white-space: pre;
+  }
+  .copy-btn {
+    font-size: 0.8125rem;
+    font-family: inherit;
+    color: var(--accent);
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 0.15rem 0.6rem;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  .copy-btn:hover { border-color: var(--accent); }
+
+  h2 {
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.4rem;
+    margin: 2.75rem 0 1.25rem;
+  }
+
+  .job { margin-bottom: 1.25rem; }
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .job-head strong { font-weight: 600; }
+  .job-head time {
+    color: var(--muted);
+    white-space: nowrap;
+    font-size: 0.9375rem;
+    min-width: 10rem;
+    text-align: left;
+  }
+  .job p { margin: 0.15rem 0 0; }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  footer {
+    margin-top: 3.5rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1rem;
+  }
+</style>
+</head>
+<body class="en">
+<main>
+  <nav class="top-nav">
+    <a class="nav-link" href="./tool.html">
+      <span class="i18n-zh">工具</span>
+      <span class="i18n-en">Tools</span>
+    </a>
+    <span class="nav-sep" aria-hidden="true">·</span>
+    <button class="lang-switch" id="lang-toggle" type="button">EN</button>
+  </nav>
+
+  <header>
+    <img src="avatar.jpg" alt="4ra1n" width="96" height="96">
+    <h1>4ra1n</h1>
+    <p class="title">
+      <span class="i18n-zh">独立安全研究员 · 安全开发</span>
+      <span class="i18n-en">Independent Security Researcher · Security Developer</span>
+    </p>
+    <p class="intro">
+      <span class="i18n-zh">hello，我是 4ra1n，聚焦 Java 安全研究与漏洞利用技术，多年 DAST/SAST 研发运营经验。当前关注点在 AI 提效传统代码审计和漏洞挖掘，曾供职于知名安全厂商和头部互联网公司。我获得过众多知名产品的 CVE 致谢和国际知名厂商安全公告致谢，在多个知名 Bug Bounty 和 SRC（安全响应中心） 提交过高危严重漏洞，累计获得 ?????? 赏金</span>
+      <span class="i18n-en">Hello, I'm 4ra1n. I focus on Java security research and vulnerability exploitation, with years of DAST/SAST development and operations experience. My current focus is on leveraging AI to boost traditional code auditing and vulnerability hunting. I previously worked at a well-known security vendor and a leading internet company. I have received numerous CVE acknowledgments for well-known products and security advisory credits from internationally renowned vendors, and have submitted high and critical severity vulnerabilities to multiple well-known Bug Bounty programs and SRCs (Security Response Centers), earning ?????? in total bounties.</span>
+    </p>
+    <div class="skills">
+      <span class="i18n-zh">Java 开发</span>
+      <span class="i18n-en">Java Development</span>
+      <span class="i18n-zh">Java 字节码技术</span>
+      <span class="i18n-en">Java Bytecode</span>
+      <span class="i18n-zh">Java 字节码混淆</span>
+      <span class="i18n-en">Java Bytecode Obfuscation</span>
+      <span class="i18n-zh">Java 漏洞分析</span>
+      <span class="i18n-en">Java Vulnerability Analysis</span>
+      <span class="i18n-zh">Java 漏洞深入利用</span>
+      <span class="i18n-en">Advanced Java Exploitation</span>
+      <span class="i18n-zh">静态分析</span>
+      <span class="i18n-en">Static Analysis</span>
+      <span class="i18n-zh">代码审计</span>
+      <span class="i18n-en">Code Auditing</span>
+      <span class="i18n-zh">DAST 研发</span>
+      <span class="i18n-en">DAST Development</span>
+      <span class="i18n-zh">SAST 研发</span>
+      <span class="i18n-en">SAST Development</span>
+      <span class="i18n-zh">渗透测试</span>
+      <span class="i18n-en">Penetration Testing</span>
+      <span class="i18n-zh">Bug Bounty</span>
+      <span class="i18n-en">Bug Bounty</span>
+    </div>
+    <div class="mottos">
+      <p><span class="i18n-zh">1. 在正确的时间做正确的事</span><span class="i18n-en">1. Do the right thing at the right time</span></p>
+      <p><span class="i18n-zh">2. 选择你擅长的方向深入做，而不是每一个点浅尝辄止</span><span class="i18n-en">2. Go deep in what you do best instead of going shallow on everything</span></p>
+      <p><span class="i18n-zh">3. 保持学习，拥抱 AI，才能抓住机会</span><span class="i18n-en">3. Keep learning and embrace AI to seize the opportunities</span></p>
+    </div>
+    <p class="links">
+      <a href="https://github.com/4ra1n" target="_blank" rel="noopener">GitHub</a>
+      <span aria-hidden="true">·</span>
+      <span class="i18n-zh">安全致谢与 CVE 链接详细列表：</span>
+      <span class="i18n-en">Detailed list of security acknowledgments &amp; CVEs:</span>
+      <a href="https://github.com/4ra1n/4ra1n/blob/main/SECURITY-en.md" target="_blank" rel="noopener">English</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://github.com/4ra1n/4ra1n/blob/main/SECURITY-zh.md" target="_blank" rel="noopener">中文</a>
+    </p>
+    <div class="contact">
+      <p class="contact-title">
+        <span class="i18n-zh">邮箱（执行以下命令获取，支持复制）</span>
+        <span class="i18n-en">Email (run this command to reveal, copy enabled)</span>
+        <button class="copy-btn" id="copy-email" type="button">复制</button>
+      </p>
+      <pre class="email-cmd"><code id="email-text">echo Xgqha4F1AfTsVMK/zPPSGOa9ReExqOcZgsgLMDtEdgs= | \
+openssl enc -d -base64 | \
+openssl enc -d -aes-256-cbc \
+-iv 636f64652d73656375726974792d6169 \
+-K 347261326e2d612d636f64652d7365632d6167656e742d62792d347261316e21 2>/dev/null</code></pre>
+    </div>
+  </header>
+
+  <section>
+    <h2>
+      <span class="i18n-zh">工作经历</span>
+      <span class="i18n-en">Experience</span>
+    </h2>
+    <div class="job">
+      <div class="job-head">
+        <strong><span class="i18n-zh">独立安全研究员</span><span class="i18n-en">Independent Security Researcher</span></strong>
+        <time>2025.08 - <span class="i18n-zh">至今</span><span class="i18n-en">Present</span></time>
+      </div>
+    </div>
+    <div class="job">
+      <div class="job-head">
+        <strong><span class="i18n-zh">某甲方互联网公司</span><span class="i18n-en">Internet Company</span></strong>
+        <time>2024.05 - 2025.08</time>
+      </div>
+      <p class="i18n-zh">安全运营和 AI 安全相关</p>
+      <p class="i18n-en">Security operations and AI security</p>
+    </div>
+    <div class="job">
+      <div class="job-head">
+        <strong><span class="i18n-zh">某乙方安全公司</span><span class="i18n-en">Security Vendor</span></strong>
+        <time>2022.10 - 2024.03</time>
+      </div>
+      <p class="i18n-zh">安全开发和安全研究</p>
+      <p class="i18n-en">Security development and security research</p>
+    </div>
+  </section>
+
+  <footer>© 4ra1n</footer>
+</main>
+
+<script>
+(function () {
+  var lang = 'en';
+
+  function apply(l) {
+    document.body.className = l;
+    document.documentElement.lang = (l === 'zh') ? 'zh-CN' : 'en';
+    document.title = (l === 'zh') ? '4ra1n - 独立安全研究员' : '4ra1n - Independent Security Researcher';
+    document.getElementById('lang-toggle').textContent = (l === 'zh') ? 'EN' : '中文';
+    var copy = document.getElementById('copy-email');
+    if (copy && !copy.dataset.copied) copy.textContent = (l === 'zh') ? '复制' : 'Copy';
+  }
+
+  apply(lang);
+  document.getElementById('lang-toggle').addEventListener('click', function () {
+    lang = (document.body.className === 'zh') ? 'en' : 'zh';
+    apply(lang);
+  });
+
+  var copyBtn = document.getElementById('copy-email');
+  copyBtn.addEventListener('click', function () {
+    var text = document.getElementById('email-text').textContent.trim();
+    var zh = document.body.className === 'zh';
+
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      return ok;
+    }
+    function done(ok) {
+      copyBtn.dataset.copied = '1';
+      copyBtn.textContent = ok
+        ? (zh ? '已复制 ✓' : 'Copied ✓')
+        : (zh ? '复制失败' : 'Failed');
+      setTimeout(function () {
+        delete copyBtn.dataset.copied;
+        copyBtn.textContent = zh ? '复制' : 'Copy';
+      }, 2000);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(
+        function () { done(true); },
+        function () { done(fallback()); }
+      );
+    } else {
+      done(fallback());
+    }
+  });
+})();
+</script>
+</body>
+</html>
